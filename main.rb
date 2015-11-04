@@ -1,4 +1,6 @@
 require_relative "account"
+require_relative "consoleadapter"
+
 name = nil
 pin = ""
 register = ""
@@ -22,23 +24,7 @@ while pin.length != 4
 end
 
 account = Account.new(name, pin)
+console = ConsoleAdapter.new(account)
+console.update
 
-while true 
-	puts "What would you like to do today?
-
-		1.Withdraw
-		2.Deposit
-		4.View balance
-		3.Exit
-
-	"
-	input = gets.chomp
-	case input 
-		when "1" 
-			amount = nil
-			while amount == nil
-				puts "How much would you like to withdraw?"
-				amount = gets.chomp.to_i
-			end 
-end
 
