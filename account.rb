@@ -40,6 +40,19 @@ class Account
 		@amount -= amount
 	end
 
+	def exit
+		string = ""
+		@people.each do |person|
+			if person[0] == @name && person[1] == @pin
+				string += person[0] + ", " + person[1] + ", " + @amount.to_s
+			else
+				string += person[0] + ", " + person[1] + ", " + person[2]
+			end
+			string += "\n"
+		end
+		File.write("account.txt", string)
+	end
+
 	def find_person(name, pin)
 		person_f = nil
 		@people.each do |person|
