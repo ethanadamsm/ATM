@@ -1,7 +1,9 @@
+require_relative "account"
+
 class Adapter
 
-	def initialize(account)
-		@account = account 
+	def initialize
+		@account = account = Account.new(name, pin)
 	end 
 
 	def get_name
