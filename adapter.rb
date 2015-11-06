@@ -2,8 +2,8 @@ require_relative "account"
 
 class Adapter
 
-	def initialize
-		@account = account = Account.new(name, pin)
+	def initialize(name, pin)
+		@account = Account.new(name, pin)
 	end 
 
 	def get_name
@@ -20,6 +20,14 @@ class Adapter
 
 	def withdraw(amount)
 		@account.withdraw(amount)
+	end
+
+	def deposit(amount)
+		@account.deposit(amount)
+	end
+
+	def add_account(name, pin)
+		@account.add_account(name, pin)
 	end
 
 	def exit

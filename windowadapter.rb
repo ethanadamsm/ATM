@@ -7,13 +7,10 @@ class	WindowAdapter < Adapter
 
 	def initialize
 		@background = Gosu::Image.new("display/background.png")
-		@window = Window.new(@background)
+		@buttons = []
+		@buttons.push(Button.new(20, 20, 100, 100, "Withdraw"))
+		@window = Window.new(@background, @buttons)
 		@window.show
-		@buttons = Button.new(20, 20, 20, 20)
 	end
-
-	# def update
-	# 	@window.draw(@background, @buttons)
-	# end
 
 end

@@ -1,8 +1,9 @@
 require_relative "adapter"
+require_relative "account"
 
 class ConsoleAdapter < Adapter
 
-	def initialize()
+	def initialize
 		name = nil
 		pin = ""
 		register = ""
@@ -14,18 +15,21 @@ class ConsoleAdapter < Adapter
 			puts "Do you have a pin?"
 			input = gets.chomp
 			if input.downcase != "yes"
-				while register.length != 4
+				while input.length != 4
 					puts "Enter a new pin"
-					register = gets.chomp
+					input = gets.chomp
 				end
-				pin = register
-				break
+				pin = input
+				super(name, pin)
+				add_account(name, pin)
+				break 
+			else
+				puts "What is your pin?"
+				pin = gets.chomp
+				super(name, pin)
 			end
-			puts "What is your pin?"
-			pin = gets.chomp
 		end
-
-		super(account)
+		update
 	end
 
 	def update
@@ -47,6 +51,13 @@ class ConsoleAdapter < Adapter
 					amount = gets.chomp.to_i
 					withdraw(amount)
 				end 
+			when "2"
+				amount = nil
+				while amount == nil
+					puts "How much would you like to deposit?"
+					amount = gets.chomp.to_i
+					deposit(amount)
+				end
 			when "3"
 				puts get_balance
 			when  "4"

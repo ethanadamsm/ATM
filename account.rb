@@ -5,6 +5,7 @@ class Account
 		@pin = nil
 		@amount = nil
 		@people = nil
+		@new = false
 		people = []
 		file = File.open("account.txt")
 		people = file.read.split("\n")
@@ -36,8 +37,23 @@ class Account
 		@amount
 	end
 
+	def deposit(amount)
+		@amount += amount
+	end
+
 	def withdraw(amount)
-		@amount -= amount
+		if @amount > amount
+			@amount -= amount
+		else
+			puts "You do not have sufficient funds"
+		end
+	end
+
+	def add_account(name, pin)
+		@name = name
+		@pin = pin
+		@amount = 0
+		@new = true
 	end
 
 	def exit
@@ -46,9 +62,14 @@ class Account
 			if person[0] == @name && person[1] == @pin
 				string += person[0] + ", " + person[1] + ", " + @amount.to_s
 			else
-				string += person[0] + ", " + person[1] + ", " + person[2]
+				if person[0] != nil && person[1] != nil && person[2] != nil
+					string += person[0] + ", " + person[1] + ", " + person[2]
+				end
 			end
 			string += "\n"
+		end
+		if @new
+			string += @name + ", " + @pin + ", " + @amount.to_s
 		end
 		File.write("account.txt", string)
 	end
