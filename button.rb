@@ -17,4 +17,8 @@ class Button
 		@font.draw(@text, @x + (@w / 2), @y + (@h / 2), 1, 1, 0xff_ffffff)
 	end
 
+	def collide?(x, y)
+		x > @x && x < @x + @w && y > @y && y < @y + @h
+	end
+
 end

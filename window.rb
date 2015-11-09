@@ -15,4 +15,14 @@ class Window < Gosu::Window
 		end
 	end
 
+	def update
+		number = nil
+		(0...@buttons).each do |button|
+			if button.collide?(self.mouse_x, self.mouse_y)
+				number = button
+				break
+			end
+		end
+	end
+
 end
