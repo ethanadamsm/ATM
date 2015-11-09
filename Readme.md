@@ -7,7 +7,7 @@
 	$ bundle install	
 ```
 	To clone and install bundles not installed
-```
+```sh
 	$ ruby main.rb
 ```
 	To run the program, instructions will follow
