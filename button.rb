@@ -14,7 +14,7 @@ class Button
 
 	def draw
 		@image.draw(@x, @y, 1, @w / 20, @h/ 20)
-		@font.draw(@text, @x + (@w / 2), @y + (@h / 2), 1, 1, 0xff_ffffff)
+		@font.draw(@text, @x + (@w / 2) - (@text.length * 5), @y + (@h / 2), 2, 1, 1, 0xff_ffff00)
 	end
 
 	def collide?(x, y)
