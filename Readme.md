@@ -7,6 +7,8 @@
 	$ bundle install	
 ```
 	To clone and install bundles not installed
+	Open main.rb in a text editor
+	Comment out the adapter you do not want to use
 ```sh
 	$ ruby main.rb
 ```
