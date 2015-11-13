@@ -13,6 +13,7 @@ class	WindowAdapter < Adapter
 		@buttons.push(Button.new(260, 20, 100, 100, "Balance"))
 		@window = Window.new(@background, @buttons)
 		@window.show
+		
 	end
 
 end

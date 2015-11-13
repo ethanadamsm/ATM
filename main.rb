@@ -1,11 +1,9 @@
-require_relative "account"
-require_relative "consoleadapter"
-require_relative "windowadapter"
+require_relative "atm"
 
-#commenting out the line below will result in a window for atm
-#console = ConsoleAdapter.new 
-#commenting out the line below will result in a command line atm
-window = WindowAdapter.new
+puts "Console or window?"
+input = gets.chomp
+atm = ATM.new(input)
+
 
 
 
